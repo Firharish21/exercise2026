@@ -6,21 +6,28 @@ public class W03L06 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        // Get input exactly as shown in the sample
         System.out.print("Enter the amount of water in gram: ");
-        double grams = input.nextDouble();
+        double gram = input.nextDouble();
+
         System.out.print("Enter the initial temperature in Fahrenheit: ");
-        double initialF = input.nextDouble();
+        double initialFahrenheit = input.nextDouble();
+
         System.out.print("Enter the final temperature in Fahrenheit: ");
-        double finalF = input.nextDouble();
+        double finalFahrenheit = input.nextDouble();
 
-        // Convert grams to kg and Fahrenheit to Celsius
-        double M = grams / 1000;
-        double initialC = (initialF - 32) / 1.8;
-        double finalC = (finalF - 32) / 1.8;
+        // The formula needs M in kg, so convert gram to kg
+        double M = gram / 1000;
 
-        double Q = M * (finalC - initialC) * 4184;
+        // The formula needs Celsius, so convert Fahrenheit to Celsius
+        double initialTemperature = (initialFahrenheit - 32) / 1.8;
+        double finalTemperature = (finalFahrenheit - 32) / 1.8;
+
+        // Q = M * (final temperature - initial temperature) * 4184
+        double Q = M * (finalTemperature - initialTemperature) * 4184;
 
         System.out.printf("The energy needed is %e%n", Q);
+
         input.close();
     }
 }
